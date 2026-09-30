@@ -70,7 +70,10 @@ app.add_middleware(
         "http://127.0.0.1:5173",
         "http://localhost:8080",
         "http://127.0.0.1:8080",
+        # Add your Netlify URL below once you know it, e.g.:
+        # "https://your-site-name.netlify.app",
     ],
+    allow_origin_regex=r"https://.*\.netlify\.app",
     allow_credentials=True,
     allow_methods=["GET", "POST", "PATCH", "OPTIONS"],
     allow_headers=["Authorization", "Content-Type"],
