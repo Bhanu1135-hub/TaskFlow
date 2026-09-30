@@ -1,10 +1,11 @@
 [build]
-  base      = ""
-  command   = "npm run build"
+  base      = "frontend"
+  command   = "bun run build"
   publish   = ".output/public"
 
 [build.environment]
   NODE_VERSION = "20"
+  BUN_VERSION  = "1.2.0"
 
 # Netlify Functions (SSR) — Nitro's netlify preset generates this automatically
 [functions]

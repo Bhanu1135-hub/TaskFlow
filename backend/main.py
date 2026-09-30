@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=Path(__file__).with_name(".env.local"),
         env_file_encoding="utf-8",
+        env_ignore_empty=True,
         extra="ignore",
     )
 
@@ -119,7 +120,7 @@ def list_tasks(auth: AuthContext = Depends(require_auth_context)) -> list[TaskRe
     except Exception as error:
         raise HTTPException(status_code=502, detail="Could not load tasks from Supabase.") from error
 
-    return [TaskResponse(**row) for row in response.data or []]
+    return [TaskResponse.model_validate(row) for row in response.data or []]
 
 
 @app.post("/api/tasks", response_model=TaskResponse, status_code=status.HTTP_201_CREATED)
@@ -149,7 +150,7 @@ def create_task(
 
     if not response.data:
         raise HTTPException(status_code=502, detail="Supabase did not return the created task.")
-    return TaskResponse(**response.data[0])
+    return TaskResponse.model_validate(response.data[0])
 
 
 @app.patch("/api/tasks/{task_id}", response_model=TaskResponse)
@@ -173,4 +174,4 @@ def update_task(
 
     if not response.data:
         raise HTTPException(status_code=404, detail="Task not found.")
-    return TaskResponse(**response.data[0])
+    return TaskResponse.model_validate(response.data[0])

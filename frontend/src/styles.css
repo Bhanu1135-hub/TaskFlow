@@ -17,7 +17,6 @@
  * 1. Add the variable to :root (light value) and .dark (dark value)
  * 2. Register it in @theme inline as --color-<name>: var(--<name>)
  */
-@import "tailwindcss";
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -154,6 +153,17 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --brand: oklch(0.72 0.16 174);
+  --brand-foreground: oklch(0.13 0.042 265);
+  --brand-soft: oklch(0.25 0.065 174);
+  --success: oklch(0.62 0.13 150);
+  --success-soft: oklch(0.22 0.055 150);
+  --warning: oklch(0.72 0.14 74);
+  --warning-soft: oklch(0.26 0.055 85);
+  --danger: oklch(0.65 0.18 25);
+  --danger-soft: oklch(0.25 0.055 25);
+  --surface-raised: oklch(0.208 0.042 266 / 80%);
+  --sidebar-hover: oklch(0.26 0.045 265);
 }
 
 @layer base {

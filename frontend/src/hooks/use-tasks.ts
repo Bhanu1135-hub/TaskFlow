@@ -101,7 +101,7 @@ export function useTasks(userId: string | null) {
       return task;
     } catch (error) {
       toast.error(`Could not create task: ${error instanceof Error ? error.message : "Unknown error"}`);
-      return;
+      return null;
     }
   }
 
