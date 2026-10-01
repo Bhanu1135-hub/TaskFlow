@@ -30,23 +30,7 @@ The project is designed with a scalable architecture that separates the **fronte
 
 ## 🏗️ System Architecture
 
-```text
-                    ┌─────────────────────┐
-                    │      Frontend       │
-                    │   Web Application   │
-                    └──────────┬──────────┘
-                               │
-                               │ REST API
-                               ▼
-                    ┌─────────────────────┐
-                    │       FastAPI       │
-                    │      Backend        │
-                    └──────────┬──────────┘
-                               │
-                ┌──────────────┴──────────────┐
-                │                             │
-                ▼                             ▼
-        ┌───────────────┐             ┌───────────────┐
-        │  PostgreSQL   │             │     Redis     │
-        │    Database   │             │     Cache     │
-        └───────────────┘             └───────────────┘
+TaskFlow follows a modern full-stack architecture with a React + TypeScript frontend, FastAPI backend, PostgreSQL database, and Redis caching layer.
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/63a83311-6275-4450-b544-ef8b59117ea4" />
+
